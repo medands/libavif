@@ -2,6 +2,7 @@
 
 name: CI Windows Shared Local
 on:
+  workflow_dispatch:
   push:
   pull_request:
     paths:
