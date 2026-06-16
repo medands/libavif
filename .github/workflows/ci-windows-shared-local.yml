@@ -47,7 +47,7 @@ jobs:
 
       - name: Create build directories
         run: |
-          mkdir -p ./build
+          mkdir -p ./shared
         shell: bash
         
       - name: Set clang-cl as compiler
@@ -75,7 +75,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add ./build/libavif.lib
+          git add ./shared/libavif.lib
           git commit -m "Build: Update lib [skip ci]" || echo "No changes to commit"
           git push
         shell: bash
@@ -85,7 +85,7 @@ jobs:
         if: success()
         with:
           name: libavif-build
-          path: ./build/libavif.lib
+          path: ./shared/libavif.lib
           retention-days: 30
           
       #- name: Run AVIF Tests
